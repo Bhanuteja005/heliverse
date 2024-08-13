@@ -36,9 +36,7 @@ const RegisterLayout = () => {
             >
               <FaUniversity />
               <p className="decoration-violet-900 decoration-2 hover:underline dark:decoration-violet-300">
-                H
-                <span className=" inline-block h-3 w-3 rounded-full bg-violet-900 dark:bg-violet-500 "></span>
-                eliverse
+                Heliverse
               </p>
             </Link>
           </div>
