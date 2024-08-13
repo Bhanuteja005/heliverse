@@ -1,11 +1,11 @@
-import { useState, useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
+import { FaEdit, FaPlus, FaTrash } from "react-icons/fa";
+import { toast } from "react-toastify";
 import axios from "../../config/api/axios";
 import UserContext from "../../Hooks/UserContext";
-import { FaPlus, FaEdit, FaTrash } from "react-icons/fa";
-import { toast } from "react-toastify";
-import { TableHeader } from "../Table";
-import Loading from "../Layouts/Loading";
 import ErrorStrip from "../ErrorStrip";
+import Loading from "../Layouts/Loading";
+import { TableHeader } from "../Table";
 
 const TimeScheduleForm = () => {
   const { user, paperList } = useContext(UserContext);
@@ -14,10 +14,17 @@ const TimeScheduleForm = () => {
   const [id, setId] = useState("");
   const [error, setError] = useState("");
 
+  // Default schedule with class names
+  const defaultSchedule = {
+    monday: ["Math", "Science", "History", "PE", "Art"],
+    tuesday: ["English", "Math", "Science", "History", "PE"],
+    wednesday: ["Art", "English", "Math", "Science", "History"],
+    thursday: ["PE", "Art", "English", "Math", "Science"],
+    friday: ["History", "PE", "Art", "English", "Math"],
+  };
+
   // updating attendance state on "onChange" event.
   const handleFormChange = (e) => {
-    // the whole thing is a convoluted mess, but it WORKS.
-    // if you have an alternative, DM ;).
     const index = parseInt(e.target.id);
     const day = e.target.name;
     const value = e.target.value;
@@ -45,13 +52,7 @@ const TimeScheduleForm = () => {
         // incase the record doesn't exist
         if (err?.response?.status === 404) {
           setDisabled(false);
-          setTimeSchedule({
-            monday: ["--", "--", "--", "--", "--"],
-            tuesday: ["--", "--", "--", "--", "--"],
-            wednesday: ["--", "--", "--", "--", "--"],
-            thursday: ["--", "--", "--", "--", "--"],
-            friday: ["--", "--", "--", "--", "--"],
-          });
+          setTimeSchedule(defaultSchedule);
         } else setError(err);
       }
     };
@@ -86,13 +87,7 @@ const TimeScheduleForm = () => {
     toast.success(response.data.message, {
       icon: ({ theme, type }) => <FaTrash />,
     });
-    setTimeSchedule({
-      monday: ["--", "--", "--", "--", "--"],
-      tuesday: ["--", "--", "--", "--", "--"],
-      wednesday: ["--", "--", "--", "--", "--"],
-      thursday: ["--", "--", "--", "--", "--"],
-      friday: ["--", "--", "--", "--", "--"],
-    });
+    setTimeSchedule(defaultSchedule);
   };
 
   return (

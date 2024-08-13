@@ -1,12 +1,13 @@
 import { useContext, useEffect } from "react";
 import { AiOutlineSchedule } from "react-icons/ai";
+import { BiBookAdd } from "react-icons/bi";
+import { GiBookshelf } from "react-icons/gi";
 import { IoCalendarOutline } from "react-icons/io5";
 import { PiBooks, PiStudent, PiUser } from "react-icons/pi";
 import { RiUserAddLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import UserContext from "../../Hooks/UserContext";
 import axios from "../../config/api/axios";
-
 const Dash = () => {
   const { user, setPaperList } = useContext(UserContext);
 
