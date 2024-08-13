@@ -65,7 +65,7 @@ const Dash = () => {
           </div>
         </Link>
 
-        {user.role === "Principal" && (
+        {user.role === "HOD" && (
           <>
            
            <Link

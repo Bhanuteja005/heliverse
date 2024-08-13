@@ -33,7 +33,7 @@ const Nav = () => {
             Time Schedule
           </li>
         </NavLink>
-        {user.role === "Principal" && (
+        {user.role === "HOD" && (
           <>
             <NavLink to={"./add_paper"} className="w-full font-medium">
               <li className="flex gap-2 duration-200 rounded-md px-4 py-2 hover:bg-violet-600/40 ">
