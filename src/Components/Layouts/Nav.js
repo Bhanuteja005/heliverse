@@ -14,7 +14,12 @@ const Nav = () => {
       className="z-0 hidden h-full flex-col justify-stretch bg-slate-950 px-4 py-4 text-slate-100  dark:bg-slate-950 dark:from-65% lg:flex "
     >
       <ul className="m-auto flex flex-grow flex-col items-center justify-start gap-[6px]">
-        
+      <NavLink to={"./paper"} className="w-full font-medium">
+          <li className="flex gap-2 duration-200 rounded-md px-4 py-2 hover:bg-violet-600/40 ">
+            <GiBookshelf className="pt-[0.1rem] text-2xl  " />
+            Papers
+          </li>
+        </NavLink>
         <NavLink to={"./attendance"} className="w-full font-medium">
           <li className="flex gap-2 duration-200 rounded-md px-4 py-2 hover:bg-violet-600/40 ">
             <IoCalendarOutline className="pt-[0.1rem] text-2xl  " />
@@ -28,9 +33,14 @@ const Nav = () => {
             Time Schedule
           </li>
         </NavLink>
-        {user.role === "HOD" && (
+        {user.role === "Principal" && (
           <>
-            
+            <NavLink to={"./add_paper"} className="w-full font-medium">
+              <li className="flex gap-2 duration-200 rounded-md px-4 py-2 hover:bg-violet-600/40 ">
+                <BiBookAdd className="pt-[0.1rem] text-2xl  " />
+                Add Paper
+              </li>
+            </NavLink>
             <NavLink to={"./approve_staff"} className="w-full font-medium">
               <li className="flex gap-2 duration-200 rounded-md px-4 py-2 hover:bg-violet-600/40 ">
                 <RiUserAddLine className="pt-[0.1rem] text-2xl  " />
