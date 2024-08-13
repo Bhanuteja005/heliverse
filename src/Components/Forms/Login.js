@@ -75,7 +75,6 @@ const Login = () => {
             <FaUniversity />
             <h1 className="font-spectral font-semibold  text-slate-900  dark:text-slate-300 ">
               H
-              <span className="inline-block h-10 w-10 rounded-full bg-violet-900 dark:bg-violet-600 md:h-14 md:w-14 xl:h-14 xl:w-14"></span>
               eliverse
             </h1>
           </section>
